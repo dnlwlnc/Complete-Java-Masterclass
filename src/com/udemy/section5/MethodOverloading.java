@@ -7,9 +7,9 @@ public class MethodOverloading {
         calculateScore(300);
         calculateScore();*/
 
-        System.out.println(calcFeetAndInchesToCentimeters(-7, 1));
+        System.out.println(calcFeetAndInchesToCentimeters(7, 1));
 
-
+        System.out.println(calcFeetAndInchesToCentimeters(157));
     }
 
     public static int calculateScore(String playerName, int score) {
@@ -28,12 +28,14 @@ public class MethodOverloading {
     }
 
     public static double calcFeetAndInchesToCentimeters(double feet, double inches) {
-        if (feet >= 0 && inches >= 0 && inches <= 12) {
-            double centimeters = (feet * 12 + inches) * 2.54;
-            return centimeters;
-        } else {
+        if ((feet < 0) || ((inches < 0) || (inches > 12))) {
             return -1;
         }
+
+        double centimeters = (feet * 12) * 2.54;
+        centimeters += inches * 2.54;
+        System.out.println(feet + " feet " + inches + " inches are equal to " + centimeters + " cm");
+        return centimeters;
     }
 
     public static double calcFeetAndInchesToCentimeters(double inches) {
@@ -42,8 +44,9 @@ public class MethodOverloading {
         }
 
         double feet = (int) inches / 12;
-        double remainding = (int) inches % 12;
-        System.out.println(inches);
+        double remaining = (int) inches % 12;
+        System.out.println(inches + " inches is equal to " + feet + " feet and " + remaining);
+        return calcFeetAndInchesToCentimeters(feet, remaining);
 
     }
 
