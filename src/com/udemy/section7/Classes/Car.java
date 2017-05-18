@@ -1,4 +1,4 @@
-package com.udemy.section7;
+package com.udemy.section7.Classes;
 
 /**
  * Created by welencd on 2017-05-17.
@@ -19,5 +19,11 @@ public class Car {
 
     // CONSTRUCTOR
 
+    public void setModel(String model){
+        this.model = model; // this. odnosi się do pola w klasie
+    }
 
+    public String getModel(){
+        return this.model;
+    }
 }
