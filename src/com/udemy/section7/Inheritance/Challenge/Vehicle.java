@@ -23,7 +23,7 @@ public class Vehicle {
     }
 
     public void move(int velocity, int direction) {
-        currentDirection = velocity;
+        currentVelocity = velocity;
         currentDirection = direction;
         System.out.println("Vehicle.move() moving at " + velocity + " and direction " + direction);
     }
@@ -31,6 +31,11 @@ public class Vehicle {
     public void stop(){
         this.currentVelocity=0;
     }
+
+
+    // GETTERS
+
+
     public String getName() {
         return name;
     }
