@@ -34,7 +34,6 @@ public class Main {
         // For the two additional classes this may require you to be looking at the base class for pricing and then
         // adding totals onto that.
 
-
         Hamburger berger = new Hamburger("Cham", 10.0, "wołowina", "buła pszenna");
 
         berger.addAddition1("Pomidor", 3.5);
