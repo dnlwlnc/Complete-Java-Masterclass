@@ -102,11 +102,6 @@ class Ford extends Car{
 }
 
 
-
-
-
-
-
 public class Main {
     public static void main(String[] args) {
         Car car = new Car("Base car", 8);
@@ -124,11 +119,9 @@ public class Main {
         System.out.println(ford.accelerate());
         System.out.println(ford.brake());
 
-        Holden holden = new Holden("Skyline", 8);
+        Holden holden = new Holden("Commodore", 8);
         System.out.println(holden.startEngine());
         System.out.println(holden.accelerate());
         System.out.println(holden.brake());
     }
-
-
 }
