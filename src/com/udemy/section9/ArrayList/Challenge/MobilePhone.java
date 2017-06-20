@@ -49,13 +49,13 @@ public class MobilePhone {
         return true;
     }
 
-    public String queryContact(Contact contact) {
-        if (findContact(contact) >= 0) {
-            return contact.getName();
-        }
-
-        return null;
-    }
+//    public String queryContact(Contact contact) {
+//        if (findContact(contact) >= 0) {
+//            return contact.getName();
+//        }
+//
+//        return null;
+//    }
 
     public Contact queryContact(String name) {
         int position = findContact(name);
@@ -65,6 +65,7 @@ public class MobilePhone {
 
         return null;
     }
+
     private int findContact(Contact contact) {
         return this.myContacts.indexOf(contact); // jeśli kontaktu nie ma, wartość będzie < 0
     }
