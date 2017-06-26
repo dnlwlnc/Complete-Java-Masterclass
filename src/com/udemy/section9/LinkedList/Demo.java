@@ -3,6 +3,7 @@ package com.udemy.section9.LinkedList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Scanner;
 
 /**
  * Created by welencd on 2017-06-26.
@@ -10,20 +11,17 @@ import java.util.ListIterator;
 public class Demo {
     public static void main(String[] args) {
         LinkedList<String> placesToVisit = new LinkedList<String>();
-        placesToVisit.add("Warszawa");
-        placesToVisit.add("Berlin");
-        placesToVisit.add("Paryz");
-        placesToVisit.add("Londyn");
-        placesToVisit.add("Madryt");
-        placesToVisit.add("Lizbona");
-        placesToVisit.add("Rzym");
-        printList(placesToVisit);
+        addInOrder(placesToVisit, "Warszawa");
+        addInOrder(placesToVisit, "Berlin");
+        addInOrder(placesToVisit, "Paryz");
+        addInOrder(placesToVisit, "Londyn");
+        addInOrder(placesToVisit, "Rzym");
+        addInOrder(placesToVisit, "Madryt");
+        addInOrder(placesToVisit, "Lizbona");
+        addInOrder(placesToVisit, "Londyn");
 
-        placesToVisit.add(1, "Dublin");
         printList(placesToVisit);
-
-        placesToVisit.remove(4);
-        printList(placesToVisit);
+        visit(placesToVisit);
     }
 
     private static void printList(LinkedList<String> linkedList) {
@@ -57,4 +55,54 @@ public class Demo {
         return true;
     }
 
+    private static void visit(LinkedList cities) {
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+        ListIterator<String> listIterator = cities.listIterator();
+
+        if (cities.isEmpty()) {
+            System.out.println("No cities in the list");
+            return;
+        } else {
+            System.out.println("Now visiting " + listIterator.next());
+            printMenu();
+        }
+
+        while (!quit) {
+            int action = scanner.nextInt();
+            scanner.nextLine();
+            switch (action) {
+                case 0:
+                    System.out.println("Holiday over");
+                    quit = true;
+                    break;
+                case 1:
+                    if (listIterator.hasNext()) {
+                        System.out.println("Now visiting: " + listIterator.next());
+                    } else {
+                        System.out.println("Reached end of the list");
+                    }
+                    break;
+                case 2:
+                    if (listIterator.hasPrevious()) {
+                        System.out.println("Now visiting " + listIterator.previous());
+                    } else {
+                        System.out.println("We're at the start of the list.");
+                    }
+                    break;
+                case 3:
+                    printMenu();
+                    break;
+            }
+        }
+
+    }
+
+    private static void printMenu() {
+        System.out.println("Available actions:\nPress:");
+        System.out.println("0 - to quit\n" + "1 - go to next city\n"
+                + "2 - go to previous city\n"
+                + "3 - print menu options"
+        );
+    }
 }
