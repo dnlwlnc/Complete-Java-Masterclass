@@ -148,7 +148,7 @@ public class Main {
     }
 
     private static void printList(LinkedList<Song> playlist) {
-        Iterator<Song> iterator = playlist.iterator();
+        Iterator<Song> iterator = playlist.iterator(); // iterator w przeciwieństwie do listIterator'a - pozwala na przechodzenie wyłącznie w przód
         System.out.println("================================");
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
